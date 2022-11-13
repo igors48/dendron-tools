@@ -8,6 +8,10 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static nmd.LinkExtractor.extractLinks;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ *
+ * @author Igor Usenko
+ */
 class LinkExtractorTest {
 
     @ParameterizedTest

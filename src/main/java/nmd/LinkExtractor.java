@@ -4,8 +4,11 @@ import lombok.val;
 
 import java.util.*;
 
+/**
+ *
+ * @author Igor Usenko
+ */
 final class LinkExtractor {
-
     private static final String BEGIN_LINK = "[[";
     private static final String END_LINK = "]]";
     private static final String SPLITTER = "|";
