@@ -9,7 +9,6 @@ import static nmd.LinkExtractor.extractLinks;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- *
  * @author Igor Usenko
  */
 class LinkExtractorTest {
@@ -21,10 +20,9 @@ class LinkExtractorTest {
             "[[ [[ content ]]",
     })
     void cornerCases(String line) {
-        LinkExtractorException thrown = assertThrows(
+        val thrown = assertThrows(
                 LinkExtractorException.class,
-                () -> extractLinks(line),
-                "Expected extractLinks to throw, but it didn't"
+                () -> extractLinks(line)
         );
 
         assertTrue(thrown.getMessage().contains("malformed link"), "then exception thrown");

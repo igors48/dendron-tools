@@ -17,8 +17,13 @@ public class App {
                 Paths.get(path), "*.md")) {
 
             for (val entry : dir) {
-                System.out.println(entry);
-
+                val lines = Files.readAllLines(entry);
+                try {
+                    val document = DocumentParser.parse(lines);
+                    System.out.printf("%s : %s\r\n", entry, document);
+                } catch (LinkExtractorException e) {
+                    System.out.printf("Error in %s\r\n", entry);
+                }
             }
         }
     }
