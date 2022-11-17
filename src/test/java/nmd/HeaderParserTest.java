@@ -24,7 +24,7 @@ class HeaderParserTest {
                         "updated: 1668508066883",
                         "---"
                 ),
-                Collections.emptyList()
+                new Header(1668508066883L)
         ));
 
         return data.stream();
@@ -47,6 +47,23 @@ class HeaderParserTest {
         ));
 
         data.add(Arguments.of(
+                "when one line",
+                List.of(
+                        "---"
+                ),
+                "invalid content"
+        ));
+
+        data.add(Arguments.of(
+                "when two lines",
+                List.of(
+                        "---",
+                        "---"
+                ),
+                "invalid content"
+        ));
+
+        data.add(Arguments.of(
                 "when header start signature missing",
                 List.of(
                         "updated: 1668508066883",
@@ -54,16 +71,6 @@ class HeaderParserTest {
                         "content"
                 ),
                 "no header start signature"
-        ));
-
-        data.add(Arguments.of(
-                "when header stop signature missing",
-                List.of(
-                        "---",
-                        "updated: 1668508066883",
-                        "content"
-                ),
-                "no header stop signature"
         ));
 
         data.add(Arguments.of(
@@ -113,7 +120,7 @@ class HeaderParserTest {
                 "when header updated field invalid",
                 List.of(
                         "---",
-                        "updated 1668d50806g6883",
+                        "updated: 1668d50806g6883",
                         "---",
                         "content"
                 ),
