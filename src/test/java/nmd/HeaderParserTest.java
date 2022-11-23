@@ -12,6 +12,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Igor Usenko
+ */
 class HeaderParserTest {
 
     private static Stream<Arguments> happyFlow() {
