@@ -30,13 +30,13 @@ final class CommandLineParser {
             CommandLine commandLine = null;
             commandLine = parser.parse(options, arguments);
             val workingDir = commandLine.getOptionValue("w");
-            val monthes = commandLine.getOptionValue("s");
+            val months = commandLine.getOptionValue("s");
 
-            if (monthes == null) {
+            if (months == null) {
                 throw new CommandLineParserException("no command");
             }
 
-            return new FindStalledDocumentsCommandParameters(monthes, workingDir);
+            return new FindStalledDocumentsCommandParameters(months, workingDir);
         } catch (ParseException e) {
             throw new CommandLineParserException(e);
         }
