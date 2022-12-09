@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 class FindStalledDocumentsCommandTest {
 
-    private static Stream<Arguments> arguments() {
+    private static Stream<Arguments> contexts() {
         val data = new ArrayList<Arguments>();
 
         data.add(Arguments.of(
@@ -23,8 +23,8 @@ class FindStalledDocumentsCommandTest {
     }
 
     @ParameterizedTest
-    @MethodSource("arguments")
-    void testFind(String message, FindStalledDocumentsCommandParameters parameters, String expectedMessage) {
+    @MethodSource("contexts")
+    void testFind(String message, FindStalledDocumentsCommandContext context, String expectedMessage) {
     }
 
 }

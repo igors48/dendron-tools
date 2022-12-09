@@ -12,25 +12,17 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 final class FindStalledDocumentsCommand {
 
-    private final FindStalledDocumentsCommandParameters parameters;
-    private final DocumentHeaderStreamFactory streamFactory;
-    private final Time time;
+    private static final long MONTH_TO_MILLIS = 30L * 24 * 60 * 60 * 1000;
+
+    private final FindStalledDocumentsCommandContext context;
 
     Set<DocumentHeader> find() {
-        val from = calculateFrom(); // ?? just "older than" maybe
-        val to = calculateTo();
-        return streamFactory.create(parameters.workingDir()).filter(c -> {
-            val updated = c.updated();
-            return (updated >= from) && (updated <= to);
+        val now = context.time().current();
+        val treshold = now - (long) context.months() * MONTH_TO_MILLIS;
+        return context.streamFactory().create(context.workingDir()).filter(candidate -> {
+            val updated = candidate.updated();
+            return updated <= treshold;
         }).collect(Collectors.toSet());
-    }
-
-    private long calculateTo() {
-        return 0;
-    }
-
-    private long calculateFrom() {
-        return 0;
     }
 
 }
