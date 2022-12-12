@@ -17,7 +17,7 @@ import org.apache.commons.cli.ParseException;
  */
 final class CommandLineParser {
 
-    static CommandParameters parse(String[] arguments) {
+    CommandParameters parse(String[] arguments) {
         try {
             if (arguments.length == 0) {
                 throw new CommandLineParserException("no arguments");
@@ -27,8 +27,7 @@ final class CommandLineParser {
             options.addOption("s", "stalled", true, "");
 
             val parser = new DefaultParser();
-            CommandLine commandLine = null;
-            commandLine = parser.parse(options, arguments);
+            CommandLine commandLine = parser.parse(options, arguments);
             val workingDir = commandLine.getOptionValue("w");
             val months = commandLine.getOptionValue("s");
 

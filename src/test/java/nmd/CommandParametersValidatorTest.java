@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Igor Usenko
  */
-class FindStalledDocumentsCommandValidatorTest {
+class CommandParametersValidatorTest {
 
     private static Stream<Arguments> cornerCases() {
         val data = new ArrayList<Arguments>();
@@ -51,7 +51,7 @@ class FindStalledDocumentsCommandValidatorTest {
     void testCornerCases(String message, FindStalledDocumentsCommandParameters parameters, String expectedMessage) {
         val thrown = assertThrows(
                 CommandParametersValidationException.class,
-                () -> FindStalledDocumentsCommandValidator.validate(parameters)
+                () -> CommandParametersValidator.validate(parameters)
         );
 
         assertTrue(thrown.getMessage().contains(expectedMessage), "then exception thrown: " + expectedMessage);
@@ -61,7 +61,7 @@ class FindStalledDocumentsCommandValidatorTest {
     @Test
     void happyFlow() {
         try {
-            FindStalledDocumentsCommandValidator.validate(new FindStalledDocumentsCommandParameters("1", "2"));
+            CommandParametersValidator.validate(new FindStalledDocumentsCommandParameters("1", "2"));
         } catch (Exception e) {
             fail();
         }

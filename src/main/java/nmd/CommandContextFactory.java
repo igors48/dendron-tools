@@ -1,6 +1,7 @@
 package nmd;
 
 import lombok.RequiredArgsConstructor;
+import lombok.val;
 
 /**
  * @author Igor Usenko
@@ -12,6 +13,11 @@ final class CommandContextFactory {
     private final Time time;
 
     FindStalledDocumentsCommandContext create(FindStalledDocumentsCommandParameters parameters) {
-        return null;
+        return new FindStalledDocumentsCommandContext(
+                Integer.parseInt(parameters.months()),
+                parameters.workingDir(),
+                streamFactory,
+                time
+        );
     }
 }

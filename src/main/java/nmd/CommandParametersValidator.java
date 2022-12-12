@@ -10,9 +10,9 @@ import lombok.val;
  *
  * @author Igor Usenko
  */
-final class FindStalledDocumentsCommandValidator {
+final class CommandParametersValidator {
 
-    static void validate(FindStalledDocumentsCommandParameters parameters) {
+    void validate(FindStalledDocumentsCommandParameters parameters) {
         val months = parameters.months();
         if (months == null || months.isBlank()) throw new CommandParametersValidationException("months is empty");
         val workingDir = parameters.workingDir();
