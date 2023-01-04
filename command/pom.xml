@@ -11,4 +11,33 @@
 
     <artifactId>command</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>nmd</groupId>
+            <artifactId>cli</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>nmd</groupId>
+            <artifactId>dendron</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+        </dependency>
+
+    </dependencies>
+
 </project>
