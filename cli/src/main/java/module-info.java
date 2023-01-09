@@ -2,5 +2,6 @@ module cli {
     requires lombok;
     requires commons.cli;
 
-    exports nmd.parameters to command;
+    exports nmd.cli.parser to app;
+    exports nmd.cli.parameters to command;
 }

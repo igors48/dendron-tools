@@ -1,9 +1,9 @@
-package nmd.cli;
+package nmd.cli.parser;
 
 /**
  * @author Igor Usenko
  */
-final class CommandLineParserException extends RuntimeException {
+public final class CommandLineParserException extends RuntimeException {
 
     public CommandLineParserException(String message) {
         super(message);

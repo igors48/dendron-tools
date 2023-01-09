@@ -1,4 +1,4 @@
-package nmd;
+package nmd.cli.parser;
 
 /**
  * @author Igor Usenko

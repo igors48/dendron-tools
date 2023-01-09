@@ -1,6 +1,6 @@
-package nmd.parameters;
+package nmd.cli.parameters;
 
-import nmd.CommandParameters;
+import nmd.cli.parser.CommandParameters;
 
 /**
  * @author Igor Usenko

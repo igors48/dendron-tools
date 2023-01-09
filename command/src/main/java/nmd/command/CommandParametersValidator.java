@@ -1,7 +1,7 @@
 package nmd.command;
 
 import lombok.val;
-import nmd.parameters.FindStalledDocumentsCommandParameters;
+import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 
 /**
  * Validates a command parameters

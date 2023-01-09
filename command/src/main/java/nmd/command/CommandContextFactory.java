@@ -1,8 +1,8 @@
 package nmd.command;
 
 import lombok.RequiredArgsConstructor;
+import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 import nmd.dendron.DocumentHeaderStreamFactory;
-import nmd.parameters.FindStalledDocumentsCommandParameters;
 
 /**
  * @author Igor Usenko

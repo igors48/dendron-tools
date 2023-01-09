@@ -1,7 +1,7 @@
 package nmd.command;
 
 import lombok.val;
-import nmd.parameters.FindStalledDocumentsCommandParameters;
+import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

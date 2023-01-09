@@ -1,8 +1,7 @@
-package nmd.cli;
+package nmd.cli.parser;
 
 import lombok.val;
-import nmd.CommandParameters;
-import nmd.parameters.FindStalledDocumentsCommandParameters;
+import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
@@ -17,9 +16,9 @@ import org.apache.commons.cli.ParseException;
  *
  * @author Igor Usenko
  */
-final class CommandLineParser {
+public final class CommandLineParser {
 
-    CommandParameters parse(String[] arguments) {
+    public static CommandParameters parse(String[] arguments) {
         try {
             if (arguments.length == 0) {
                 throw new CommandLineParserException("no arguments");

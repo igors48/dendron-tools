@@ -27,17 +27,12 @@ public class Command<T extends Parameters> {
         validator.validate(this);
     }
 
-    ;
-
     public void execute() {
         executor.execute(this);
     }
-
-    ;
 
     public void render() {
         render.render(this);
     }
 
-    ;
 }
