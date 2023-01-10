@@ -1,5 +1,6 @@
 module cli {
-    requires lombok;
+    requires static lombok;
+
     requires commons.cli;
 
     exports nmd.cli.parser to app;

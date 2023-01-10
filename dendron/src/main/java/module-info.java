@@ -1,5 +1,5 @@
 module dendron {
-    requires lombok;
+    requires static lombok;
 
     exports nmd.dendron to command;
 }

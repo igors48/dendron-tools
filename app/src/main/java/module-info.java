@@ -1,4 +1,5 @@
 module app {
-    requires lombok;
+    requires static lombok;
+
     requires cli;
 }
