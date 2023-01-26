@@ -1,10 +1,14 @@
 package nmd.command;
 
 import lombok.NonNull;
+import nmd.command.factory.Command;
 
 /**
  * @author Igor Usenko
  */
 public interface Validator {
-    void validate(@NonNull Command command);
+
+    Validator EMPTY = new Validator() {};
+
+    default void validate(@NonNull Command command){};
 }

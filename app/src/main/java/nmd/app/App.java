@@ -2,15 +2,19 @@ package nmd.app;
 
 import lombok.val;
 import nmd.cli.parser.CommandLineParser;
+import nmd.command.factory.Factory;
 
 /**
  * @author Igor Usenko
  */
-public class App {
+final class App {
 
     public static void main(String[] args) {
         val parameters = CommandLineParser.parse(args);
-        System.out.println(parameters);
+        val command = Factory.create(parameters);
+        command.validate();
+        command.execute();
+        command.render();
 //        val path = args[0];
 //        try (val dir = Files.newDirectoryStream(
 //                Paths.get(path), "*.md")) {

@@ -1,6 +1,7 @@
 package nmd.cli.parser;
 
 import lombok.val;
+import nmd.cli.parameters.CommandParameters;
 import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;

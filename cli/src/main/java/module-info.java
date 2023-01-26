@@ -4,5 +4,5 @@ module cli {
     requires commons.cli;
 
     exports nmd.cli.parser to app;
-    exports nmd.cli.parameters to command;
+    exports nmd.cli.parameters to app, command;
 }

@@ -1,6 +1,10 @@
-package nmd.command;
+package nmd.command.factory;
 
 import lombok.NonNull;
+import nmd.command.Executor;
+import nmd.command.Parameters;
+import nmd.command.Render;
+import nmd.command.Validator;
 
 /**
  * @author Igor Usenko
@@ -17,10 +21,6 @@ public class Command<T extends Parameters> {
         this.validator = validator;
         this.executor = executor;
         this.render = render;
-    }
-
-    public T getParameters() {
-        return parameters;
     }
 
     public void validate() {
