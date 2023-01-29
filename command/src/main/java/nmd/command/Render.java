@@ -6,8 +6,8 @@ import nmd.command.factory.Command;
 /**
  * @author Igor Usenko
  */
-public interface Render {
+public interface Render<T extends Result> {
     Render EMPTY = new Render() {};
 
-    default void render(@NonNull Command command){};
+    default void render(){};
 }

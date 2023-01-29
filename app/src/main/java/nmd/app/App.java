@@ -12,7 +12,6 @@ final class App {
     public static void main(String[] args) {
         val parameters = CommandLineParser.parse(args);
         val command = Factory.create(parameters);
-        command.validate();
         command.execute();
         command.render();
 //        val path = args[0];

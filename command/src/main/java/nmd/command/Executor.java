@@ -6,9 +6,9 @@ import nmd.command.factory.Command;
 /**
  * @author Igor Usenko
  */
-public interface Executor {
+public interface Executor<T extends Context> {
 
     Executor EMPTY = new Executor(){};
 
-    default void execute(@NonNull Command command){};
+    default void execute(){};
 }

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Igor Usenko
  */
-class CommandParametersValidatorTest {
+class CommandContextValidatorTest {
 
     private static Stream<Arguments> cornerCases() {
         val data = new ArrayList<Arguments>();

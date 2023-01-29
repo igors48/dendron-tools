@@ -2,37 +2,29 @@ package nmd.command.factory;
 
 import lombok.NonNull;
 import nmd.command.Executor;
-import nmd.command.Parameters;
+import nmd.command.Context;
 import nmd.command.Render;
-import nmd.command.Validator;
+import nmd.command.Result;
 
 /**
  * @author Igor Usenko
  */
-public class Command<T extends Parameters> {
+public class Command<C extends Context, R extends Result> {
 
-    private final T parameters;
-    private final Validator validator;
-    private final Executor executor;
-    private final Render render;
+    private final Executor<C> executor;
+    private final Render<R> render;
 
-    public Command(@NonNull T parameters, @NonNull Validator validator, @NonNull Executor executor, @NonNull Render render) {
-        this.parameters = parameters;
-        this.validator = validator;
+    public Command(@NonNull Executor<C> executor, @NonNull Render<R> render) {
         this.executor = executor;
         this.render = render;
     }
 
-    public void validate() {
-        validator.validate(this);
-    }
-
     public void execute() {
-        executor.execute(this);
+        executor.execute();
     }
 
     public void render() {
-        render.render(this);
+        render.render();
     }
 
 }
