@@ -1,8 +1,8 @@
-package nmd.command.find.stalled;
+package nmd.command.find.stalled.documents;
 
 import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 
-record Context(
+public record FindStalledDocumentsCommandContext(
         FindStalledDocumentsCommandParameters parameters
 ) implements nmd.command.Context<FindStalledDocumentsCommandParameters> {
 }
