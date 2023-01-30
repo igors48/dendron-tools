@@ -1,5 +1,5 @@
 module command {
-    requires lombok;
+    requires static lombok;
 
     requires cli;
     requires dendron;
