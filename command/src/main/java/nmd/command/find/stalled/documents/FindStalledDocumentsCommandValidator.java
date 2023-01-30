@@ -1,11 +1,13 @@
-package nmd.command.find.stalled;
+package nmd.command.find.stalled.documents;
 
 import lombok.NonNull;
 import lombok.val;
 import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 import nmd.command.CommandParametersValidationException;
 
-public final class Validator implements nmd.command.Validator<FindStalledDocumentsCommandParameters> {
+public final class FindStalledDocumentsCommandValidator implements nmd.command.Validator<FindStalledDocumentsCommandParameters> {
+
+    public static final FindStalledDocumentsCommandValidator FIND_STALLED_DOCUMENTS_COMMAND_VALIDATOR = new FindStalledDocumentsCommandValidator();
 
     @Override
     public void validate(@NonNull FindStalledDocumentsCommandParameters parameters) {
