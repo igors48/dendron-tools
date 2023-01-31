@@ -1,8 +1,11 @@
 package nmd.command.find.stalled.documents;
 
-public class FindStalledDocumentsCommandRender implements nmd.command.Render<FindStalledDocumentsCommandResult> {
+import nmd.dendron.DocumentHeader;
+
+public class FindStalledDocumentsCommandRender implements Render {
+
     @Override
-    public void render() {
-        System.out.println("render");
+    public void renderStalled(DocumentHeader header) {
+
     }
 }

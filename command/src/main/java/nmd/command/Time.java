@@ -3,6 +3,6 @@ package nmd.command;
 /**
  * @author Igor Usenko
  */
-interface Time {
+public interface Time {
     long current();
 }

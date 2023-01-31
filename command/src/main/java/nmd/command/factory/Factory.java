@@ -26,8 +26,8 @@ public final class Factory {
     private static Command createFindStalledDocumentsCommand(FindStalledDocumentsCommandParameters p) {
         FIND_STALLED_DOCUMENTS_COMMAND_VALIDATOR.validate(p);
         val context = new FindStalledDocumentsCommandContext(p);
-        val executor = new FindStalledDocumentsCommandExecutor();
         val render = new FindStalledDocumentsCommandRender();
+        val executor = new FindStalledDocumentsCommandExecutor(context, render);
         return new Command(executor, render);
     }
 }

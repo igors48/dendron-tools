@@ -3,7 +3,7 @@ package nmd.command.factory;
 import lombok.NonNull;
 import nmd.command.Executor;
 import nmd.command.Context;
-import nmd.command.Render;
+import nmd.command.find.stalled.documents.Render;
 import nmd.command.Result;
 
 /**

@@ -6,7 +6,7 @@ import nmd.command.factory.Command;
 /**
  * @author Igor Usenko
  */
-public interface Executor<T extends Context> {
+public interface Executor {
 
     Executor EMPTY = new Executor(){};
 
