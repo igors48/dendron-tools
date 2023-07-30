@@ -23,6 +23,11 @@
             <artifactId>cli</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>nmd</groupId>
+            <artifactId>command</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

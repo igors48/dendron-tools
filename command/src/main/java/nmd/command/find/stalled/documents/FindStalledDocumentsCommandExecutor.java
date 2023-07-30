@@ -1,9 +1,9 @@
 package nmd.command.find.stalled.documents;
 
 import lombok.val;
-import nmd.command.Executor;
+import nmd.command.factory.Command;
 
-public class FindStalledDocumentsCommandExecutor implements Executor {
+public class FindStalledDocumentsCommandExecutor implements Command {
 
     private static final long MONTH_TO_MILLIS = 30L * 24 * 60 * 60 * 1000;
     private final FindStalledDocumentsCommandContext context;

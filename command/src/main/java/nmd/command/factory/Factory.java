@@ -6,6 +6,7 @@ import nmd.cli.parameters.FindStalledDocumentsCommandParameters;
 import nmd.command.find.stalled.documents.FindStalledDocumentsCommandContext;
 import nmd.command.find.stalled.documents.FindStalledDocumentsCommandExecutor;
 import nmd.command.find.stalled.documents.FindStalledDocumentsCommandRender;
+import nmd.dendron.DocumentHeaderStreamFactoryImpl;
 
 import static nmd.command.find.stalled.documents.FindStalledDocumentsCommandValidator.FIND_STALLED_DOCUMENTS_COMMAND_VALIDATOR;
 
@@ -18,16 +19,13 @@ public final class Factory {
         // 1. validate parameters
         // 2. create command context (1 + 2 as an one step)
         // 3. create command
-        return switch (parameters) {
-            case FindStalledDocumentsCommandParameters p -> createFindStalledDocumentsCommand(p);
-        };
+        return createFindStalledDocumentsCommand((FindStalledDocumentsCommandParameters) parameters);
     }
 
     private static Command createFindStalledDocumentsCommand(FindStalledDocumentsCommandParameters p) {
         FIND_STALLED_DOCUMENTS_COMMAND_VALIDATOR.validate(p);
-        val context = new FindStalledDocumentsCommandContext(p);
+        val context = new FindStalledDocumentsCommandContext(Integer.parseInt(p.months()), p.workingDir(), new DocumentHeaderStreamFactoryImpl(), System::currentTimeMillis);
         val render = new FindStalledDocumentsCommandRender();
-        val executor = new FindStalledDocumentsCommandExecutor(context, render);
-        return new Command(executor, render);
+        return new FindStalledDocumentsCommandExecutor(context, render);
     }
 }

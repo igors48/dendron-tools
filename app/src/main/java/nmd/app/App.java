@@ -2,6 +2,7 @@ package nmd.app;
 
 import lombok.val;
 import nmd.cli.parser.CommandLineParser;
+import nmd.command.factory.Command;
 import nmd.command.factory.Factory;
 
 /**
@@ -11,9 +12,8 @@ final class App {
 
     public static void main(String[] args) {
         val parameters = CommandLineParser.parse(args);
-        val command = Factory.create(parameters);
+        Command command = Factory.create(parameters);
         command.execute();
-        command.render();
     }
 
 }

@@ -6,6 +6,6 @@ public class FindStalledDocumentsCommandRender implements Render {
 
     @Override
     public void renderStalled(DocumentHeader header) {
-
+        System.out.println(header.fileName());
     }
 }
