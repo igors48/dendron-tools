@@ -22,7 +22,7 @@ public class FindStalledDocumentsCommandExecutor implements Command {
         val now = context.time().current();
         val treshold = now - (long) context.days() * DAYS_TO_MILLIS;
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
-        System.out.println("Not updated since: " + formatter.format(treshold));
+        System.out.println("Not updated more than " + context.days() + " days. Since: " + formatter.format(treshold));
         context.streamFactory().create(context.workingDir())
                 .filter(candidate -> {
                     val updated = candidate.updated();
