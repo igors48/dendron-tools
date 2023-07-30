@@ -15,7 +15,7 @@ final class CommandParametersValidator {
 
     void validate(FindStalledDocumentsCommandParameters parameters) {
         val months = parameters.months();
-        if (months == null || months.isBlank()) throw new CommandParametersValidationException("months is empty");
+        if (months == null || months.isBlank()) throw new CommandParametersValidationException("days is empty");
         val workingDir = parameters.workingDir();
         if (workingDir == null || workingDir.isBlank())
             throw new CommandParametersValidationException("working directory is empty");

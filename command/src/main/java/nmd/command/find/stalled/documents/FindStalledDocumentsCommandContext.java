@@ -5,7 +5,7 @@ import nmd.command.Time;
 import nmd.dendron.DocumentHeaderStreamFactory;
 
 public record FindStalledDocumentsCommandContext(
-        int months,
+        int days,
         String workingDir,
         DocumentHeaderStreamFactory streamFactory,
         Time time

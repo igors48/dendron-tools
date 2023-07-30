@@ -1,6 +1,5 @@
 package nmd.dendron;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,7 +10,10 @@ public class DocumentHeaderStreamFactoryImpl implements DocumentHeaderStreamFact
     @Override
     public Stream<DocumentHeader> create(String directory) {
         try (Stream<Path> stream = Files.list(Paths.get(directory))) {
-            List<Path> paths = stream.filter(file -> !Files.isDirectory(file)).toList();
+            List<Path> paths = stream
+                    .filter(file -> !Files.isDirectory(file))
+                    .filter(file -> file.toString().endsWith(".md"))
+                    .toList();
             return paths.stream().map(this::parseHeader);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -24,7 +26,8 @@ public class DocumentHeaderStreamFactoryImpl implements DocumentHeaderStreamFact
             List<String> lines = Files.readAllLines(path);
             Header header = HeaderParser.parseHeader(lines);
             return new DocumentHeader(path.toString(), header);
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println(path + " " + e.getMessage());
             return null;
         }
     }

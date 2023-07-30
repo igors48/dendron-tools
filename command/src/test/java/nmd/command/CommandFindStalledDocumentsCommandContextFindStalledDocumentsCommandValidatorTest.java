@@ -23,13 +23,13 @@ class CommandFindStalledDocumentsCommandContextFindStalledDocumentsCommandValida
         data.add(Arguments.of(
                 "when month is empty",
                 new FindStalledDocumentsCommandParameters("", "w"),
-                "months is empty"
+                "days is empty"
         ));
 
         data.add(Arguments.of(
                 "when month is null",
                 new FindStalledDocumentsCommandParameters(null, "w"),
-                "months is empty"
+                "days is empty"
         ));
 
         data.add(Arguments.of(
