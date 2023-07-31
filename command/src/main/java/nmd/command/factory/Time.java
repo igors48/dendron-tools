@@ -1,4 +1,4 @@
-package nmd.command;
+package nmd.command.factory;
 
 /**
  * @author Igor Usenko

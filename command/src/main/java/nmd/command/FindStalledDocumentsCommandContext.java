@@ -1,5 +1,6 @@
 package nmd.command;
 
+import nmd.command.factory.Time;
 import nmd.dendron.DocumentHeaderStreamFactory;
 
 /**
