@@ -8,6 +8,7 @@ public record FindStalledDocumentsCommandContext(
         int days,
         String workingDir,
         DocumentHeaderStreamFactory streamFactory,
+        FileSystem fileSystem,
         Time time
 ) implements Context {
 }

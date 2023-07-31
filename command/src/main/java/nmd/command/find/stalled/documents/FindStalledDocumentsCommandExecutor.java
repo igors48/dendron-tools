@@ -6,9 +6,6 @@ import nmd.dendron.DocumentHeader;
 import nmd.dendron.HeaderParserFromStream;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.stream.Stream;
 
@@ -27,17 +24,15 @@ public class FindStalledDocumentsCommandExecutor implements Command {
     @Override
     public void execute() {
         val now = context.time().current();
-        val treshold = now - (long) context.days() * DAYS_TO_MILLIS;
+        val threshold = now - (long) context.days() * DAYS_TO_MILLIS;
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
-        System.out.println("Not updated more than " + context.days() + " days. Since: " + formatter.format(treshold));
-        try (Stream<Path> paths = Files.list(Paths.get(context.workingDir()))) {
-            paths
-                    .filter(file -> !Files.isDirectory(file))
-                    .filter(file -> file.toString().endsWith(".md"))
+        System.out.println("Not updated more than " + context.days() + " days. Since: " + formatter.format(threshold));
+        try (Stream<String> files = context.fileSystem().files(context.workingDir())) {
+            files.filter(file -> file.endsWith(".md"))
                     .map(this::parseHeader)
                     .filter(candidate -> {
                         val updated = candidate.updated();
-                        return updated <= treshold;
+                        return updated <= threshold;
                     })
                     .sorted((h1, h2) -> h1.updated() > h2.updated() ? 1 : -1)
                     .forEach(render::renderStalled);
@@ -46,12 +41,12 @@ public class FindStalledDocumentsCommandExecutor implements Command {
         }
     }
 
-    private DocumentHeader parseHeader(Path path) {
+    private DocumentHeader parseHeader(String path) {
         HeaderParserFromStream parser = new HeaderParserFromStream();
-        try (Stream<String> lines = Files.lines(path)) {
+        try (Stream<String> lines = context.fileSystem().lines(path)) {
             long count = lines.takeWhile(parser::newLine).count();
             System.out.println(path + " " + count);
-            return new DocumentHeader(path.toString(), parser.getResult());
+            return new DocumentHeader(path, parser.getResult());
         } catch (Exception e) {
             System.out.println(path + " " + e.getMessage());
             return null;

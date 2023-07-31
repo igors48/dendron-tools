@@ -17,7 +17,7 @@ public class HeaderParserFromStream {
             } catch (Exception e) {
                 // empty
             }
-            return true;
+            return false;
         } else {
             return true;
         }
