@@ -16,8 +16,8 @@ public interface FileSystem {
                 .map(Path::toString);
     }
 
-    default Stream<String> lines(String fileName) throws IOException {
-        return Files.lines(Path.of(fileName));
+    default Stream<String> lines(String file) throws IOException {
+        return Files.lines(Path.of(file));
     }
 
 }
