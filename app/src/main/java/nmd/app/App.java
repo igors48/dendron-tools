@@ -18,7 +18,7 @@ final class App {
 
     void run(String[] args, FileSystem fileSystem, Time time) {
         val parameters = CommandLineParser.parse(args);
-        Factory factory = new Factory(fileSystem, time);
+        Factory factory = new Factory(fileSystem, time, System.out::println);
         Command command = factory.create(parameters);
         command.execute();
     }
