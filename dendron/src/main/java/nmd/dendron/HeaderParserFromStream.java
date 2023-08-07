@@ -9,7 +9,7 @@ public class HeaderParserFromStream {
     private Long updated = null;
 
     public boolean newLine(String line) {
-        if (line.startsWith("updated")) {
+        if (line.startsWith("updated")) { // todo check for null
             val splitterIndex = line.indexOf(":");
             if (splitterIndex == -1) {
                 throw new HeaderParserException(HEADER_UPDATED_FIELD_MALFORMED);
